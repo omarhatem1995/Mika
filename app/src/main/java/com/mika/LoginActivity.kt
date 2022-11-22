@@ -1,10 +1,12 @@
 package com.mika
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -19,16 +21,16 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityLoginBinding
     private val AUTH_REQUEST_CODE = 1171
-    private lateinit var firebaseAuth : FirebaseAuth
+    private var firebaseAuth : FirebaseAuth? = null
     private lateinit var stateListener : FirebaseAuth.AuthStateListener
     private lateinit var providers : List<AuthUI.IdpConfig>
     override fun onStart() {
         super.onStart()
-        firebaseAuth.addAuthStateListener(stateListener)
+        firebaseAuth?.addAuthStateListener(stateListener)
     }
 
     override fun onStop() {
-        firebaseAuth.removeAuthStateListener(stateListener)
+        firebaseAuth?.removeAuthStateListener(stateListener)
         super.onStop()
 
     }
@@ -36,9 +38,8 @@ class LoginActivity : AppCompatActivity() {
     fun init(){
         providers = listOf(AuthUI.IdpConfig.GoogleBuilder().build(),
                           AuthUI.IdpConfig.EmailBuilder().build())
-        firebaseAuth = FirebaseAuth.getInstance()
         stateListener = FirebaseAuth.AuthStateListener {
-            var user : FirebaseUser? = firebaseAuth.currentUser
+            var user : FirebaseUser? = firebaseAuth?.currentUser
             if(user != null){
                 Toast.makeText(this,    " You are already", Toast.LENGTH_LONG).show()
             }else{
@@ -46,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     .getInstance()
                     .createSignInIntentBuilder()
                     .setAvailableProviders(providers)
+                    .setLogo(R.drawable.mika)
                     .build(),AUTH_REQUEST_CODE)
             }
         }
@@ -53,6 +55,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -61,7 +64,8 @@ class LoginActivity : AppCompatActivity() {
 
         init()
 
-        val navController = findNavController(R.id.nav_host_fragment_content_login)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_login) as NavHostFragment
+        val navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
@@ -76,4 +80,6 @@ class LoginActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
     }
+
+
 }

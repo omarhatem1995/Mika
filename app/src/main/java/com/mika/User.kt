@@ -1,8 +1,13 @@
 package com.mika
 
-import com.google.firebase.database.IgnoreExtraProperties
 
-@IgnoreExtraProperties
-data class User(val username: String? = null, val email: String? = null) {
-
-}
+data class User(
+    val uuID: String? = null,
+    val username: String? = null,
+    val userType: String? = null,
+    val email: String? = null,
+    val plateNumber: String? = null,
+    val phoneNumber: String? = null,
+    val vehicleType: String? = null,
+    val vehicleColor: String? = null
+)

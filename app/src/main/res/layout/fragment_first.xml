@@ -6,22 +6,118 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/login_userName_editText"
-        style="@style/MyEditTextTheme"
-        android:layout_width="0dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_number_textInputLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        style="@style/MyEditTextTheme"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="@string/user_name"
-        android:inputType="textPersonName"
-        android:textColor="@color/dark_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <Button
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number"
+            style="@style/MyEditTextTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:textColor="@color/dark_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/plate_number_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MyEditTextTheme"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/plate_number"
+            style="@style/MyEditTextTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:textColor="@color/dark_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/plate_number_textInputLayout"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/vehicle_type_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MyEditTextTheme"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plate_number_textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vehicle_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:textColor="@color/dark_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/vehicle_color_textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MyEditTextTheme"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vehicle_type_textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/vehicle_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/MyEditTextTheme"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="@string/user_name"
+            android:inputType="textPersonName"
+            android:textColor="@color/dark_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+     <Button
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,5 +125,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_userName_editText" />
+        app:layout_constraintTop_toBottomOf="@id/vehicle_color_textInputLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

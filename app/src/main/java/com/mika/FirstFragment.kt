@@ -9,7 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.mika.Constants.CLIENT
+import com.mika.Constants.CLIENT_USER_TYPE
 import com.mika.databinding.FragmentFirstBinding
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -53,13 +53,14 @@ class FirstFragment : Fragment() {
 
 
     private fun setUserDataInFirebase(uID : String, userName : String, email : String){
-        val user = User(uuID = uID,username = userName , userType = CLIENT ,
+        val user = User(uuID = uID,username = userName , userType = CLIENT_USER_TYPE ,
             email = email , plateNumber = binding.plateNumber.text.toString() ,
             phoneNumber = binding.phoneNumber.text.toString(),
             vehicleType = binding.vehicleType.text.toString(),
             vehicleColor = binding.vehicleColor.text.toString())
         viewLifecycleOwner.lifecycleScope.launch {
-            firebaseDataBase?.reference?.child("Users")?.child("${user.uuID}")?.setValue(user)?.await()
+            firebaseDataBase?.reference?.child(CLIENT_USER_TYPE)
+                ?.child("Users")?.child("${user.uuID}")?.setValue(user)?.await()
 
             val bundle = Bundle()
             bundle.putString("userID",uID)

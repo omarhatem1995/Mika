@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "561520641418",
+    "project_id": "mika-b439b",
+    "storage_bucket": "mika-b439b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561520641418:android:77d3bba65f44961547f473",
+        "android_client_info": {
+          "package_name": "com.mika"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561520641418-vram786pepd5hitfrukepg50f7ahh7hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWqBVkGaY4mh-IdWYG4EgmWJvLh0VmLSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561520641418-vram786pepd5hitfrukepg50f7ahh7hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

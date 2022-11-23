@@ -53,7 +53,7 @@ class FirstFragment : Fragment() {
 
 
     private fun setUserDataInFirebase(uID : String, userName : String, email : String){
-        val user = User(uuID = uID,username = userName , userType = CLIENT_USER_TYPE ,
+        val user = User(uuID = uID,userName = userName , userType = CLIENT_USER_TYPE ,
             email = email , plateNumber = binding.plateNumber.text.toString() ,
             phoneNumber = binding.phoneNumber.text.toString(),
             vehicleType = binding.vehicleType.text.toString(),

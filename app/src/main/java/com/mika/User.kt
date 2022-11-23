@@ -3,7 +3,7 @@ package com.mika
 
 data class User(
     val uuID: String? = null,
-    val username: String? = null,
+    val userName: String? = null,
     val userType: String? = null,
     val email: String? = null,
     val plateNumber: String? = null,

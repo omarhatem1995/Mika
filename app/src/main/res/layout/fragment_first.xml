@@ -72,6 +72,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vehicle_type"
+            style="@style/MyEditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

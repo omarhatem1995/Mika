@@ -76,7 +76,7 @@ class SecondFragment : Fragment() {
         }
     }
 
-    fun firebaseResponse(response :  Response<DataSnapshot>? , userID : String) : Flow<User> {
+    private fun firebaseResponse(response :  Response<DataSnapshot>?, userID : String) : Flow<User> {
         Log.d("getUserID" , "$userID")
         val res = response as Response.Success
         Log.d("getUserID" , "$res")

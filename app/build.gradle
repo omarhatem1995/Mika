@@ -24,6 +24,7 @@ android {
         }
     }
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -33,6 +34,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'com.mika'
 }
 
 dependencies {
@@ -67,4 +69,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+
+    //calendar
+//    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.0'
+//    implementation 'com.kizitonwose.calendar:view:2.0.4'
+
 }

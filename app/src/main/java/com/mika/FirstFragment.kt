@@ -63,15 +63,28 @@ class FirstFragment : Fragment() {
     private fun checkUserExistence(userID:String?) {
         viewLifecycleOwner.lifecycleScope.launch {
 
-            val response = firebaseDataBase?.reference?.child("Users")?.singleValueEvent()
+            val response = firebaseDataBase?.reference?.child("Types")?.singleValueEvent()
 
             if(response is Response.Success){
 //               val user =  response.data.child("$userID").value
                 if (userID != null) {
                     firebaseResponse(response,userID).flowWithLifecycle(viewLifecycleOwner.lifecycle
                         , Lifecycle.State.STARTED).collect{
-                        Log.d("getUserID", "da5al gwa el Collect ${it.userType}")
-                        navigateToSecondClientHomeFragment()
+
+                        if (it != null)
+                        {
+                            if (it.type == CLIENT_USER_TYPE)
+                            {
+                                navigateToSecondClientHomeFragment()
+                            }else
+                            {
+                                navigateToProviderFragment()
+                            }
+                        }
+
+
+
+
                     }
                 }else{
                     Toast.makeText(context,"USER ID NULL", Toast.LENGTH_LONG).show()
@@ -85,18 +98,20 @@ class FirstFragment : Fragment() {
 
     }
 
-    private fun navigateToSecondClientHomeFragment() {
-//        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    private fun navigateToProviderFragment() {
+        TODO("Not yet implemented")
     }
 
-    private fun firebaseResponse(response :  Response<DataSnapshot>?, userID : String) : Flow<User> {
-        Log.d("getUserID" , "$userID")
+    private fun navigateToSecondClientHomeFragment() {
+       findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+    }
+
+    private fun firebaseResponse(response :  Response<DataSnapshot>?, userID : String) : Flow<UserType?> {
         val res = response as Response.Success
-        Log.d("getUserID" , "$res")
+
         return flow{
-            res.data.child(CLIENT_USER_TYPE).child(userID).getValue(User::class.java)?.let {
-                Log.d("getUserID", "y3m $it")
-                emit(it) }
+
+                emit(res.data.child(userID).getValue(UserType::class.java))
         }
     }
 
@@ -110,6 +125,10 @@ class FirstFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             firebaseDataBase?.reference?.child("Users")?.child(CLIENT_USER_TYPE)
                 ?.child("${user.uuID}")?.setValue(user)?.await()
+
+            val type = UserType(CLIENT_USER_TYPE)
+            firebaseDataBase?.reference?.child("Types")?.child(user.uuID!!)
+                ?.setValue(type)?.await()
 
             val bundle = Bundle()
             bundle.putString("userID",uID)

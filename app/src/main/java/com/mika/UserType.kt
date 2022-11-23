@@ -1,3 +1,3 @@
 package com.mika
 
-data class UserType(val type:String?)
+data class UserType(val type:String? = null)

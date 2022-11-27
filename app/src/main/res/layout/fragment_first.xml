@@ -14,23 +14,23 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="@string/phone_number"
+        android:inputType="number"
+        style="@style/MyEditTextTheme"
+        android:visibility="invisible">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/phone_number"
-            style="@style/MyEditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
-            android:hint="@string/phone_number"
-            android:inputType="number"
             android:textColor="@color/dark_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        />
 
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -41,19 +41,20 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/plate_number"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        style="@style/MyEditTextTheme"
         app:layout_constraintTop_toBottomOf="@id/phone_number_textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/plate_number"
-            style="@style/MyEditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
-            android:hint="@string/plate_number"
-            android:inputType="textPersonName"
             android:textColor="@color/dark_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,19 +69,20 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/vehicle_type"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        style="@style/MyEditTextTheme"
         app:layout_constraintTop_toBottomOf="@id/plate_number_textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vehicle_type"
-            style="@style/MyEditTextTheme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
-            android:hint="@string/vehicle_type"
-            android:inputType="textPersonName"
             android:textColor="@color/dark_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -95,19 +97,20 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        android:hint="@string/vehicle_color"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        style="@style/MyEditTextTheme"
         app:layout_constraintTop_toBottomOf="@id/vehicle_type_textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/vehicle_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MyEditTextTheme"
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:ems="10"
-            android:hint="@string/vehicle_color"
-            android:inputType="textPersonName"
             android:textColor="@color/dark_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,5 +125,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+         android:visibility="invisible"
         app:layout_constraintTop_toBottomOf="@id/vehicle_color_textInputLayout" />
+
+    <ProgressBar
+        android:id="@+id/progress_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

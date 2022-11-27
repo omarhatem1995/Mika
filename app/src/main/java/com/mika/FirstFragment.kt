@@ -63,6 +63,9 @@ class FirstFragment : Fragment() {
     private fun checkUserExistence(userID:String?) {
         viewLifecycleOwner.lifecycleScope.launch {
 
+
+            _binding?.progressFirst?.visibility = View.VISIBLE
+
             val response = firebaseDataBase?.reference?.child("Types")?.singleValueEvent()
 
             if(response is Response.Success){
@@ -71,8 +74,12 @@ class FirstFragment : Fragment() {
                     firebaseResponse(response,userID).flowWithLifecycle(viewLifecycleOwner.lifecycle
                         , Lifecycle.State.STARTED).collect{
 
+
+
                         if (it != null)
                         {
+
+
                             if (it.type == CLIENT_USER_TYPE)
                             {
                                 navigateToSecondClientHomeFragment()
@@ -80,6 +87,10 @@ class FirstFragment : Fragment() {
                             {
                                 navigateToProviderFragment()
                             }
+                        }else
+                        {
+                            Toast.makeText(context,"USER Not Found", Toast.LENGTH_LONG).show()
+                            showEditTextsWhenDataNotAvailable()
                         }
 
 
@@ -87,11 +98,13 @@ class FirstFragment : Fragment() {
 
                     }
                 }else{
+                    _binding?.progressFirst?.visibility =View.GONE
                     Toast.makeText(context,"USER ID NULL", Toast.LENGTH_LONG).show()
 
                 }
             }else{
-                Toast.makeText(context,"USER ID NULL", Toast.LENGTH_LONG).show()
+                showEditTextsWhenDataNotAvailable()
+                //Toast.makeText(context,"USER Not Found", Toast.LENGTH_LONG).show()
 
             }
         }
@@ -139,5 +152,14 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun showEditTextsWhenDataNotAvailable()
+    {
+        _binding?.progressFirst?.visibility = View.GONE
+        _binding?.phoneNumberTextInputLayout?.visibility = View.VISIBLE
+        _binding?.plateNumberTextInputLayout?.visibility = View.VISIBLE
+        _binding?.vehicleColorTextInputLayout?.visibility = View.VISIBLE
+        _binding?.vehicleType?.visibility = View.VISIBLE
     }
 }

@@ -22,12 +22,13 @@
     <style name="Theme.Mika.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Mika.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="MyEditTextTheme">
+    <style name="MyEditTextTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <!-- Used for the bottom line when not selected / focused -->
         <item name="colorControlNormal">@color/white</item>
         <item name="android:padding">10dp</item>
-        <item name="android:background">@drawable/edit_text_layout</item>
+<!--        <item name="android:background">@drawable/edit_text_layout</item>-->
         <item name="android:textDirection">locale</item>
+
         <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
     </style>
 </resources>

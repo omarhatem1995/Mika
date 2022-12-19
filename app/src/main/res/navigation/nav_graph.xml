@@ -15,6 +15,9 @@
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment"
             app:popUpTo="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_providerFragment"
+            app:destination="@id/providerFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -26,4 +29,9 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/providerFragment"
+        android:name="com.mika.ProviderFragment"
+        android:label="fragment_provider"
+        tools:layout="@layout/fragment_provider" />
 </navigation>

@@ -58,6 +58,7 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
 
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         var currentDate = "${date.year}-${date.monthValue}-${date.dayOfMonth}"
+        binding?.currentDateTextView?.text = currentDate
         var usersList = mutableListOf<User>()
         viewLifecycleOwner.lifecycleScope.launch {
             // Inflate the layout for this fragment

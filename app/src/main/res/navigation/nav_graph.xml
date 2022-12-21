@@ -14,10 +14,13 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment"
-            app:popUpTo="@id/SecondFragment" />
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_FirstFragment_to_providerFragment"
-            app:destination="@id/providerFragment" />
+            app:destination="@id/providerFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"

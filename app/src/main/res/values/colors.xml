@@ -13,4 +13,6 @@
     <color name="mika_green">#008c3c</color>
     <color name="splashBackGround">#FFEB3B</color>
     <color name="mika_700">#005d10</color>
+    <color name="colorAccent">#005d10</color>
+    <color name="colorPrimaryDark">#005d10</color>
 </resources>

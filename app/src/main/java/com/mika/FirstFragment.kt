@@ -1,5 +1,4 @@
 package com.mika
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -17,10 +17,11 @@ import com.mika.Constants.CLIENT_USER_TYPE
 import com.mika.Constants.PROVIDER_USER_TYPE
 import com.mika.databinding.FragmentFirstBinding
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import com.mika.R
+
 
 class FirstFragment : Fragment() {
 
@@ -46,6 +47,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
 
+        requireActivity().actionBar?.hide()
 
         var email = firebaseAuth?.currentUser?.email
         var uID = firebaseAuth?.currentUser?.uid
@@ -140,6 +142,7 @@ class FirstFragment : Fragment() {
     }
 
     private fun navigateToProviderFragment() {
+
         findNavController().navigate(R.id.action_FirstFragment_to_providerFragment)
     }
 
@@ -168,7 +171,8 @@ class FirstFragment : Fragment() {
 
 
     private fun navigateToSecondClientHomeFragment() {
-       findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
     }
 
     private fun firebaseResponse(response :  Response<DataSnapshot>?, userID : String) : Flow<UserType?> {

@@ -34,6 +34,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         firebaseAuth?.addAuthStateListener(stateListener)
+
+
     }
 
     override fun onStop() {
@@ -67,7 +69,8 @@ class LoginActivity : AppCompatActivity() {
             val userId = firebaseAuth?.currentUser?.uid
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
-            finish()
+
+            finishAndRemoveTask()
 
             // ...
         } else {
@@ -122,6 +125,8 @@ class LoginActivity : AppCompatActivity() {
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
             .setLogo(R.drawable.mika)
+
+            .setIsSmartLockEnabled(false)
             .setTheme(R.style.Theme_Mika_NoActionBar)
             .build())
 

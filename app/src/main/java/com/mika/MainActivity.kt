@@ -13,10 +13,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.firebase.ui.auth.AuthUI
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -65,12 +67,15 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     fun checkingDrawerState(navController: NavController, drawerLayout: DrawerLayout)
     {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            if (destination.id == R.id.SecondFragment)
+            if (destination.id == R.id.SecondFragment || destination.id == R.id.providerFragment)
             {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+                supportActionBar?.show()
+               binding.toolBar.setNavigationIcon(R.drawable.ic_baseline_menu_24)
 
             }else
             {
+                supportActionBar?.hide()
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             }
 
@@ -92,6 +97,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
                 return true
             }
         }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -108,7 +114,11 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
             }
             R.id.nav_logout -> {
-               finish()
+                AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener {
+                        finish()
+                    }
             }
             com.google.android.material.R.id.home->{
 

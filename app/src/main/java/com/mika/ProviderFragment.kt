@@ -58,7 +58,7 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
 
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
         var currentDate = "${date.year}-${date.monthValue}-${date.dayOfMonth}"
-        binding?.currentDateTextView?.text = currentDate
+        binding?.currentDateTextView?.text = "${requireActivity().getString(R.string.date)}: $currentDate"
         var usersList = mutableListOf<User>()
         viewLifecycleOwner.lifecycleScope.launch {
             // Inflate the layout for this fragment
@@ -68,7 +68,6 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
                     when(it){
                         is Response.Success -> {
                             if (it.data.value != null) {
-                                Log.d("currentDateFotmat" , "${it.data.value}")
                                 it.data.children.forEach {
                                     firebaseDataBase?.reference?.child("Users")?.child("Client")
                                         ?.child("${it.getValue(String::class.java)}")

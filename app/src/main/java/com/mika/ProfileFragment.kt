@@ -8,24 +8,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
 import com.mika.Constants.CLIENT_USER_TYPE
 import com.mika.Constants.PROVIDER_USER_TYPE
-import com.mika.databinding.FragmentFirstBinding
+import com.mika.databinding.FragmentProfileBinding
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import com.mika.R
 
 
-class FirstFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentProfileBinding? = null
     private var firebaseAuth : FirebaseAuth? = null
     private var firebaseDataBase : FirebaseDatabase?=null
 
@@ -38,7 +36,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -143,7 +141,7 @@ class FirstFragment : Fragment() {
 
     private fun navigateToProviderFragment() {
 
-        findNavController().navigate(R.id.action_FirstFragment_to_providerFragment)
+        findNavController().navigate(R.id.action_ProfileFragment_to_providerFragment)
     }
 
     private fun checkUserType(userID: String?) {
@@ -155,7 +153,7 @@ class FirstFragment : Fragment() {
                         is Response.Success -> {
                             if (it.data.value != null) {
                            if (it.data.child("type").value.toString()== PROVIDER_USER_TYPE)
-                               findNavController().navigate(R.id.action_FirstFragment_to_providerFragment)
+                               findNavController().navigate(R.id.action_ProfileFragment_to_providerFragment)
                             }
                         }else -> {
 
@@ -171,7 +169,7 @@ class FirstFragment : Fragment() {
 
 
     private fun navigateToSecondClientHomeFragment() {
-        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        findNavController().navigate(R.id.action_ProfileFragment_to_SecondFragment)
 
     }
 
@@ -205,7 +203,7 @@ class FirstFragment : Fragment() {
 
                 val bundle = Bundle()
                 bundle.putString("userID",uID)
-                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
+                findNavController().navigate(R.id.action_ProfileFragment_to_SecondFragment,bundle)
             }
         }else{
             Toast.makeText(requireContext(),"Please Check the empty field",Toast.LENGTH_LONG).show()

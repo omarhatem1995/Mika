@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/ProfileFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.mika.FirstFragment"
+        android:id="@+id/ProfileFragment"
+        android:name="com.mika.ProfileFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_profile">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_ProfileFragment_to_SecondFragment"
             app:destination="@id/SecondFragment"
-            app:popUpTo="@id/FirstFragment"
+            app:popUpTo="@id/ProfileFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_FirstFragment_to_providerFragment"
+            android:id="@+id/action_ProfileFragment_to_providerFragment"
             app:destination="@id/providerFragment"
-            app:popUpTo="@id/FirstFragment"
+            app:popUpTo="@id/ProfileFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -29,8 +29,8 @@
         tools:layout="@layout/fragment_second">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_SecondFragment_to_ProfileFragment"
+            app:destination="@id/providerFragment" />
     </fragment>
     <fragment
         android:id="@+id/providerFragment"

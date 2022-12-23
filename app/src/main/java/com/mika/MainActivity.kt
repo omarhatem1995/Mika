@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
                 val bundle = Bundle()
                 bundle.putBoolean("edit",true)
-               navController.navigate(R.id.action_SecondFragment_to_FirstFragment,bundle)
+               navController.navigate(R.id.action_SecondFragment_to_ProfileFragment,bundle)
             }
             R.id.nav_settings -> {
 

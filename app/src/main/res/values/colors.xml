@@ -15,4 +15,5 @@
     <color name="mika_700">#005d10</color>
     <color name="colorAccent">#005d10</color>
     <color name="colorPrimaryDark">#005d10</color>
+    <color name="fragment_choose_dates_background">#D6DAD6</color>
 </resources>

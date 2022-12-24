@@ -57,12 +57,12 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         binding.navigationDrawer.setupWithNavController(navController)
         binding.navigationDrawer.setNavigationItemSelectedListener(this)
 
-        toggle = ActionBarDrawerToggle(this, binding?.drawerLayout, R.string.nav_open, R.string.nav_close);
+        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.nav_open, R.string.nav_close);
         binding.drawerLayout.addDrawerListener(toggle)
         binding.navigationDrawer.bringToFront()
         toggle.syncState()
 
-        writeNewUser("1","name","email")
+//        writeNewUser("1","name","email")
     }
     fun checkingDrawerState(navController: NavController, drawerLayout: DrawerLayout)
     {

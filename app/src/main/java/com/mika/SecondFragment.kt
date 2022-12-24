@@ -39,10 +39,15 @@ class SecondFragment : Fragment() {
     private var firebaseDataBase : FirebaseDatabase?=null
     private var firebaseAuth : FirebaseAuth? = null
     private var selectedDates:Pair<String,String>?= null
+//    val activity :MainActivity = requireActivity() as MainActivity
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    override fun onResume() {
+        super.onResume()
+        (activity as MainActivity).supportActionBar?.title = getString(R.string.your_dates)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,7 +76,6 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activity :MainActivity = requireActivity() as MainActivity
 /*
         activity.setSupportActionBar(_binding?.toolBar)
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true);
@@ -111,7 +115,7 @@ class SecondFragment : Fragment() {
 
         _binding?.submitDates?.setOnClickListener {
             if(selectedDates2.size < 4)
-                Toast.makeText(requireContext(),"Please select your 4 dates",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),getString(R.string.please_select_your_4_dates),Toast.LENGTH_LONG).show()
             else
                 viewLifecycleOwner.lifecycleScope.launch { insertDatesInFirebase() }
 
@@ -128,8 +132,6 @@ class SecondFragment : Fragment() {
         datesMap.put("Second", "${selectedDates2.get(1)}");
         datesMap.put("Third", "${selectedDates2.get(2)}");
         datesMap.put("Fourth", "${selectedDates2.get(3)}");
-//        ref.setValue(names);
-        Log.d("currentMonth"  , currentMonth)
         firebaseDataBase?.reference?.child("Dates")?.child("${firebaseAuth?.currentUser?.uid}")
             ?.child(currentMonth)?.setValue(datesMap)?.await()
     }

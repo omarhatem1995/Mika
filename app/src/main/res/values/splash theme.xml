@@ -2,13 +2,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.AppSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splashBackGround</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/mika_launcher</item>
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Theme.Mika</item>
 
         <!-- Status bar and Nav bar configs -->
         <item name="android:statusBarColor" tools:targetApi="l">@color/mika_green</item>
         <item name="android:navigationBarColor">@color/mika_green</item>
+        <item name="colorPrimaryDark">@color/mika_green</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

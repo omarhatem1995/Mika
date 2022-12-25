@@ -11,12 +11,18 @@
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:navigationBarColor">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/mika_green</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/colorAccent</item>
         <!-- Customize your theme here. -->
         <item name="actionOverflowButtonStyle">@style/OverflowButton</item>
     </style>
-    
+
+    <style name="ToolbarColor" parent="Theme.Mika">
+        <item name="android:colorControlNormal">@android:color/white</item>
+    </style>
+
     <style name="Theme.Mika.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -26,12 +26,14 @@
         android:layout_height="wrap_content"
         android:background="@color/mika_green"
         android:gravity="center"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:theme="@style/ToolbarColor"
+        app:title="Mika"
+        app:titleTextColor="@color/white"
+        app:navigationIconTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationContentDescription="Navigation Up"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Mika" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
     <androidx.fragment.app.FragmentContainerView

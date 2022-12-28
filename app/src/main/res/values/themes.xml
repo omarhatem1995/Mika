@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Mika" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.Mika" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccent</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="android:navigationBarColor">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/mika_green</item>
         <item name="colorControlNormal">@android:color/white</item>
-        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/colorAccent</item>
         <!-- Customize your theme here. -->

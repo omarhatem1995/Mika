@@ -31,10 +31,21 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/providerFragment"
         android:name="com.mika.ProviderFragment"
         android:label="fragment_provider"
-        tools:layout="@layout/fragment_provider" />
+        tools:layout="@layout/fragment_provider" >
+        <action
+            android:id="@+id/action_providerFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mika.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

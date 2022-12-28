@@ -75,7 +75,7 @@ class SecondFragment : Fragment() {
     @SuppressLint("RestrictedApi")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.e("local", "onCreate: ${Locale.getDefault()}" )
 /*
         activity.setSupportActionBar(_binding?.toolBar)
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true);

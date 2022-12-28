@@ -1,7 +1,10 @@
 package com.mika
 
+import android.content.Context
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.widget.Toast
@@ -24,6 +27,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.mika.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
 
@@ -39,6 +43,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_login) as NavHostFragment
        // appBarConfiguration = AppBarConfiguration(navController.graph)
        // setupActionBarWithNavController(navController, appBarConfiguration)
+
 
 
         //add toolbar as actionbar
@@ -64,7 +69,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
 //        writeNewUser("1","name","email")
     }
-    fun checkingDrawerState(navController: NavController, drawerLayout: DrawerLayout)
+    private fun checkingDrawerState(navController: NavController, drawerLayout: DrawerLayout)
     {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.SecondFragment || destination.id == R.id.providerFragment)
@@ -112,6 +117,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
             }
             R.id.nav_settings -> {
 
+                navController.navigate(R.id.settingsFragment)
             }
             R.id.nav_logout -> {
                 AuthUI.getInstance()
@@ -127,6 +133,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         }
         return true
     }
+
+
+
 
 
 }

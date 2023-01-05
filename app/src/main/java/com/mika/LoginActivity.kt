@@ -125,7 +125,6 @@ class LoginActivity : AppCompatActivity() {
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
             .setLogo(R.drawable.mika)
-
             .setIsSmartLockEnabled(true)
             .setTheme(R.style.Theme_Mika_NoActionBar)
             .build())

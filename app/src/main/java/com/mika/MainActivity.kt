@@ -43,9 +43,7 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_login) as NavHostFragment
        // appBarConfiguration = AppBarConfiguration(navController.graph)
        // setupActionBarWithNavController(navController, appBarConfiguration)
-
-
-
+        
         //add toolbar as actionbar
         setSupportActionBar(binding.toolBar)
 

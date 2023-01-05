@@ -1,5 +1,6 @@
 package com.mika
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -16,11 +17,14 @@ class ProviderServicesAdapter: ListAdapter<User, ProviderServicesAdapter.ViewHol
             fun bind(user:User)
             {
 
-                binding.phoneNumberText.text = user.phoneNumber
+                binding.carColorText.text = user.vehicleColor
+                binding.carNumberText.text = user.plateNumber
+                binding.carTypeText.text = user.vehicleType
                 binding.userNameText.text = user.userName
-                binding.callUserImage.setOnClickListener {
+                Log.d("getUserData" , " ${user.vehicleType}")
+             /*   binding.callUserImage.setOnClickListener {
                     user.phoneNumber?.let { it1 -> callClient?.call(it1) }
-                }
+                }*/
             }
         }
 

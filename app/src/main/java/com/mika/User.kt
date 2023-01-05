@@ -6,8 +6,8 @@ data class User(
     var userName: String? = null,
     val userType: String? = null,
     val email: String? = null,
-    val plateNumber: String? = null,
+    var plateNumber: String? = null,
     var phoneNumber: String? = null,
-    val vehicleType: String? = null,
-    val vehicleColor: String? = null
+    var vehicleType: String? = null,
+    var vehicleColor: String? = null
 )

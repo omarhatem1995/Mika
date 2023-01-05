@@ -18,17 +18,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.mika.databinding.FragmentProviderBinding
 import kotlinx.coroutines.launch
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
 
-class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
+class ProviderFragment : Fragment(), ProviderServicesAdapter.CallClient {
 
-    private var firebaseAuth : FirebaseAuth? = null
-    private var firebaseDataBase : FirebaseDatabase?=null
-    private var adapter:ProviderServicesAdapter? = null
-    private var binding:FragmentProviderBinding? = null
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseDataBase: FirebaseDatabase? = null
+    private var adapter: ProviderServicesAdapter? = null
+    private var binding: FragmentProviderBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -41,7 +42,7 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseDataBase = FirebaseDatabase.getInstance()
 
-        binding = FragmentProviderBinding.inflate(inflater,container,false)
+        binding = FragmentProviderBinding.inflate(inflater, container, false)
 
         return binding!!.root
     }
@@ -50,24 +51,37 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
 
-        val date = LocalDate.now()
+    override fun onResume() {
+        super.onResume()
+        getUsersListOfDates()
+    }
+
+    fun getUsersListOfDates(){
+        val todaysDate = Date()
         adapter = ProviderServicesAdapter()
         adapter!!.callClient = this
         binding?.usersList?.adapter = adapter
 
         val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH)
-        var currentDate = "${date.year}-${date.monthValue}-${date.dayOfMonth}"
+        val sdfForDate = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
+
+        var currentDate = sdf.format(todaysDate)
+
+        binding?.currentDateTextView?.text = sdfForDate.format(todaysDate)
+
+        Log.d("currentDate", "$currentDate ")
         var usersList = mutableListOf<User>()
         viewLifecycleOwner.lifecycleScope.launch {
             // Inflate the layout for this fragment
             firebaseDataBase?.reference?.child("Users")?.child("Provider")
                 ?.child("${firebaseAuth?.currentUser?.uid}")
                 ?.child("Visits")?.child(currentDate)?.valueEventFlow()?.collect {
-                    when(it){
+                    when (it) {
                         is Response.Success -> {
                             if (it.data.value != null) {
-                                Log.d("currentDateFotmat" , "${it.data.value}")
+                                Log.d("currentDateFotmat", "${it.data.value}")
                                 it.data.children.forEach {
                                     firebaseDataBase?.reference?.child("Users")?.child("Client")
                                         ?.child("${it.getValue(String::class.java)}")
@@ -75,7 +89,10 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
                                             when (response) {
                                                 is Response.Success -> {
                                                     if (response.data.value != null) {
-                                                        Log.d("currentDateFotmat" , "${response.data.value}")
+                                                        Log.d(
+                                                            "currentDateFotmat",
+                                                            "${response.data.value}"
+                                                        )
 
 
                                                         usersList.add(User().apply {
@@ -83,12 +100,23 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
                                                                 response.data.child("userName").value.toString()
                                                             phoneNumber =
                                                                 response.data.child("phoneNumber").value.toString()
+                                                            plateNumber =
+                                                                response.data.child("plateNumber").value.toString()
+                                                            vehicleType =
+                                                                response.data.child("vehicleType").value.toString()
+                                                            vehicleColor =
+                                                                response.data.child("vehicleColor").value.toString()
                                                         })
-                                                        Log.d("currentDateFotmat" , "${usersList.size}")
+                                                        Log.d(
+                                                            "currentDateFotmat",
+                                                            "${usersList.size}"
+                                                        )
 
-
-                                                    }else{
-                                                        Log.d("currentDateFotmat" , "${response.data.value}")
+                                                    } else {
+                                                        Log.d(
+                                                            "currentDateFotmat",
+                                                            "${response.data.value}"
+                                                        )
 
                                                     }
                                                     adapter!!.submitList(usersList)
@@ -98,24 +126,23 @@ class ProviderFragment : Fragment(),ProviderServicesAdapter.CallClient {
                                             }
                                         }
                                 }
-                                Log.d("currentDateFotmat" , "${usersList.size}")
+                                Log.d("currentDateFotmat", "${usersList.size}")
 
 
-
-                            }else{
-                                Log.d("currentDateFotmat" , "${it.data.value}")
+                            } else {
+                                Log.d("currentDateFotmat", "${it.data.value}")
 
                             }
                         }
-                        else ->{
-
+                        else -> {
+                            Log.d("getDataUser", " is Else")
                         }
 
                     }
                 }
         }
-    }
 
+    }
     override fun call(phone: String) {
         val callIntent = Intent(Intent.ACTION_CALL)
         callIntent.data = Uri.parse("tel:$phone")

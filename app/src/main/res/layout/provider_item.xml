@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
+    android:layout_height="160dp"
     android:elevation="4dp"
     app:cardCornerRadius="16dp"
     android:layout_margin="16dp">
@@ -25,7 +25,6 @@
             android:id="@+id/userNameText"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="4dp"
             android:textSize="18sp"
             android:textColor="@color/black"
@@ -35,45 +34,82 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:id="@+id/phoneNumber"
+            android:id="@+id/carType"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
             android:textSize="18sp"
             android:textColor="@color/colorAccent"
-            android:text="Phone Number :"
+            android:text="Car Type :"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userName"/>
 
         <TextView
-            android:id="@+id/phoneNumberText"
+            android:id="@+id/carTypeText"
             android:layout_width="0dp"
             android:layout_height="30dp"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:text=""
             android:maxLines="1"
-            app:layout_constraintEnd_toStartOf="@id/callUserImage"
-            app:layout_constraintStart_toEndOf="@id/phoneNumber"
-            app:layout_constraintTop_toTopOf="@id/phoneNumber"
-            app:layout_constraintBottom_toBottomOf="@id/phoneNumber"/>
+            app:layout_constraintStart_toEndOf="@id/carType"
+            app:layout_constraintTop_toTopOf="@id/carType"
+            app:layout_constraintBottom_toBottomOf="@id/carType"/>
 
-        <ImageButton
-            android:id="@+id/callUserImage"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/fui_ic_phone_white_24dp"
-            android:tint="@color/black"
-            android:background="@color/colorAccent"
-            android:elevation="4dp"
-            android:layout_marginEnd="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/phoneNumber"
-            app:layout_constraintBottom_toBottomOf="@id/phoneNumber"/>
+        <TextView
+            android:id="@+id/carNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:text="Car Number :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carType"/>
+
+        <TextView
+            android:id="@+id/carNumberText"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text=""
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@id/carNumber"
+            app:layout_constraintTop_toTopOf="@id/carNumber"
+            app:layout_constraintBottom_toBottomOf="@id/carNumber"/>
+
+        <TextView
+            android:id="@+id/carColor"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:text="Car Color :"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/carNumber"/>
+
+        <TextView
+            android:id="@+id/carColorText"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:text=""
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@id/carColor"
+            app:layout_constraintTop_toTopOf="@id/carColor"
+            app:layout_constraintBottom_toBottomOf="@id/carColor"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -100,16 +100,16 @@ class SecondFragment : Fragment() {
         val current =
             calendar.get(Calendar.MONTH)
 
-        _binding?.firstDay?.setOnClickListener {
+        _binding?.cardViewFirstday?.setOnClickListener {
             showDateRangePicker("First Day")
         }
-        _binding?.secondDay?.setOnClickListener {
+        _binding?.cardViewSecondday?.setOnClickListener {
             showDateRangePicker("Second Day")
         }
-        _binding?.thirdDay?.setOnClickListener {
+        _binding?.cardViewThirdday?.setOnClickListener {
             showDateRangePicker("Third Day")
         }
-        _binding?.fourthDay?.setOnClickListener {
+        _binding?.cardViewFourthday?.setOnClickListener {
             showDateRangePicker("Fourth Day")
         }
 

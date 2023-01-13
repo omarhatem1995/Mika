@@ -37,17 +37,20 @@
     <style name="Theme.Mika.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="OverflowButton" parent="Widget.AppCompat.ActionButton.Overflow" >
-        <item name="android:tint">#62ff00</item>
+        <item name="android:tint">@color/mika_green</item>
     </style>
 
     <style name="Theme.Mika.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="MyEditTextTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="MyEditTextTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <!-- Used for the bottom line when not selected / focused -->
         <item name="colorControlNormal">@color/white</item>
         <item name="android:padding">10dp</item>
+        <item name="background">@drawable/rounded_green_with_borders</item>
 <!--        <item name="android:background">@drawable/edit_text_layout</item>-->
         <item name="android:textDirection">locale</item>
-
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="hintTextColor">@color/white</item>
         <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
     </style>
 </resources>

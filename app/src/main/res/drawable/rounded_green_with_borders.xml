@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item>
+        <shape
+            android:padding="10dp"
+            android:shape="rectangle">
+            <corners android:radius="8dp" />
+            <gradient
+                android:angle="180"
+                android:endColor="@color/mika_green"
+                android:startColor="@color/mika_green"
+                android:type="linear" />
+            <padding
+                android:bottom="0dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <solid android:color="@color/mika_green" />
+
+            <stroke
+                android:width="1dp"
+                android:color="#ecedef" />
+
+            <padding
+                android:bottom="3dp"
+                android:left="3dp"
+                android:right="3dp"
+                android:top="3dp" />
+
+            <corners
+                android:bottomLeftRadius="7dp"
+                android:bottomRightRadius="7dp"
+                android:topLeftRadius="7dp"
+                android:topRightRadius="7dp" />
+        </shape>
+    </item>
+</shape>

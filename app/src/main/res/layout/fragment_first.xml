@@ -16,6 +16,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/phone_number"
+        android:textColorHint="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +28,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:textColor="@color/dark_text" />
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,6 +41,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/plate_number"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/dark_text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/plate_number_textInputLayout" />
@@ -66,6 +68,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/vehicle_type"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/dark_text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -92,6 +95,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/vehicle_color"
+        android:textColorHint="@color/white"
         android:inputType="textPersonName"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,20 +106,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textColor="@color/dark_text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textColor="@color/mika_green"
+        android:gravity="center"
+        android:text="@string/submit"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:elevation="4dp"
+        android:background="@drawable/rounded_white"
         android:visibility="invisible"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

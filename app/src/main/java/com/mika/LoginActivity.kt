@@ -61,9 +61,6 @@ class LoginActivity : AppCompatActivity() {
 
     private fun checkResult(result: FirebaseAuthUIAuthenticationResult) {
         val response = result.idpResponse
-
-
-
         if (result.resultCode == Activity.RESULT_OK) {
             // Successfully signed in
             val userId = firebaseAuth?.currentUser?.uid
@@ -115,10 +112,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-
         init()
         val intent =(AuthUI
             .getInstance()
@@ -138,14 +131,6 @@ class LoginActivity : AppCompatActivity() {
         loginLauncher.launch(intent)
 
 
-
-
     }
-
-
-
-
-
-
 
 }

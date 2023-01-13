@@ -4,13 +4,13 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    <string name="user_name">User name</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="plate_number">Plate Number</string>
-    <string name="vehicle_type">Vehicle Type</string>
-    <string name="vehicle_color">Vehicle Color</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+    <string name="user_name">اسم المستخدم</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="plate_number">رقم اللوحة</string>
+    <string name="vehicle_type">نوع السيارة</string>
+    <string name="vehicle_color">لون السيارة</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
@@ -18,15 +18,15 @@
     <string name="nav_close">nav_close</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="your_dates">Your Dates</string>
-    <string name="please_select_your_4_dates">Please select your 4 dates</string>
-    <string name="submit">submit</string>
-    <string name="choose_fourth_day">Choose Fourth day</string>
-    <string name="choose_third_day">Choose Third day</string>
-    <string name="choose_second_day">Choose Second day</string>
-    <string name="choose_first_day">Choose First day</string>
+    <string name="your_dates">التواريخ الخاصة بك</string>
+    <string name="please_select_your_4_dates">من فضلك اختر الاربعة ايام للغسيل</string>
+    <string name="submit">تأكيد</string>
+    <string name="choose_fourth_day">اختر اليوم الرابع</string>
+    <string name="choose_third_day">اختر اليوم الثالث</string>
+    <string name="choose_second_day">اختر اليوم الثاني</string>
+    <string name="choose_first_day">اختر اليوم الاول</string>
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
+    <string name="messages_header">رسائل</string>
     <string name="sync_header">Sync</string>
 
     <!-- Messages Preferences -->
@@ -39,5 +39,5 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="languages">Languages</string>
+    <string name="languages">اللغات</string>
 </resources>

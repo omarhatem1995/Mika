@@ -21,6 +21,11 @@
             app:destination="@id/providerFragment"
             app:popUpTo="@id/FirstFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_FirstFragment_to_adminFragment"
+            app:destination="@id/adminFragment"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -40,6 +45,15 @@
         android:name="com.mika.ProviderFragment"
         android:label="fragment_provider"
         tools:layout="@layout/fragment_provider" >
+        <action
+            android:id="@+id/action_providerFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.mika.AdminFragment"
+        android:label="fragment_admin"
+        tools:layout="@layout/fragment_admin" >
         <action
             android:id="@+id/action_providerFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />

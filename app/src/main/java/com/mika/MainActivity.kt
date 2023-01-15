@@ -119,13 +119,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 navController.navigate(R.id.action_SecondFragment_to_FirstFragment, bundle)
             }
             R.id.nav_settings -> {
-
                 navController.navigate(R.id.settingsFragment)
             }
             R.id.nav_logout -> {
                 AuthUI.getInstance()
                     .signOut(this)
                     .addOnCompleteListener {
+                        navController.navigate(R.id.FirstFragment)
                         finish()
                     }
             }

@@ -238,18 +238,23 @@ class SecondFragment : Fragment() {
         materialDatePicker.addOnPositiveButtonClickListener {
             val date = getSelectedDates(it)
             if (checkSelectedDay(date.toString())) {
-                if (title == "First Day") {
-                    selectedDates2.add(0, date.toString())
-                    _binding?.firstDayTextview?.text = date.toString()
-                } else if (title == "Second Day") {
-                    selectedDates2.add(1, date.toString())
-                    _binding?.secondDayTextview?.text = date.toString()
-                } else if (title == "Third Day") {
-                    selectedDates2.add(2, date.toString())
-                    _binding?.thirdDayTextview?.text = date.toString()
-                } else if (title == "Fourth Day") {
-                    selectedDates2.add(3, date.toString())
-                    _binding?.fourthDayTextview?.text = date.toString()
+                when (title) {
+                    "First Day" -> {
+                        selectedDates2.add(0, date.toString())
+                        _binding?.firstDayTextview?.text = date.toString()
+                    }
+                    "Second Day" -> {
+                        selectedDates2.add(1, date.toString())
+                        _binding?.secondDayTextview?.text = date.toString()
+                    }
+                    "Third Day" -> {
+                        selectedDates2.add(2, date.toString())
+                        _binding?.thirdDayTextview?.text = date.toString()
+                    }
+                    "Fourth Day" -> {
+                        selectedDates2.add(3, date.toString())
+                        _binding?.fourthDayTextview?.text = date.toString()
+                    }
                 }
             }else {
                 Toast.makeText(requireContext(),"This date is already selected",Toast.LENGTH_LONG).show()

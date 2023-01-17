@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/mika_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppSplash">
+        android:theme="@style/Theme.Mika">
         <activity
             android:name=".LoginActivity"
             android:exported="true"

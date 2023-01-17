@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Mika" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Mika" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/white</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="android:textColor">#ff000f</item>
@@ -18,6 +18,11 @@
         <item name="android:statusBarColor">@color/colorAccent</item>
         <!-- Customize your theme here. -->
         <item name="actionOverflowButtonStyle">@style/OverflowButton</item>
+
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialCalendar" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="textInputStyle">@color/black</item>
     </style>
 
     <style name="ToolbarColor" parent="Theme.Mika">

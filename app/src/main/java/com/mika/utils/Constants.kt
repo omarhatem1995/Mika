@@ -1,4 +1,4 @@
-package com.mika
+package com.mika.utils
 
 object Constants {
     const val CLIENT_USER_TYPE = "Client"

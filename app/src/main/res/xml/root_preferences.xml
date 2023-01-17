@@ -23,21 +23,21 @@
 
     </PreferenceCategory>
 
-        <PreferenceCategory app:title="Save Or Reset"
+        <PreferenceCategory app:title="Save and EXIT"
             app:key="save_exit">
 
-                <ListPreference
-                    app:defaultValue="Save&amp;Exit"
-                    app:entries="@array/save_entries"
-                    app:entryValues="@array/save_values"
-                    app:key="save_settings"
-                    app:title="Save Preferences"
+<!--                <ListPreference-->
+<!--                    app:defaultValue="Save&amp;Exit"-->
+<!--                    app:entries="@array/save_entries"-->
+<!--                    app:entryValues="@array/save_values"-->
+<!--                    app:key="save_settings"-->
+<!--                    app:title="Save Preferences"-->
 
-                    />
+<!--                    />-->
 
                 <Preference app:title="Finish"
                     app:key="finish"
-                    app:summary="Click to Save Your Settings or discard it"
+                    app:summary="Click to Save Your Settings"
 
                     />
 

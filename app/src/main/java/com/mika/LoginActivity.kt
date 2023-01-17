@@ -1,18 +1,15 @@
 package com.mika
 
+import android.R
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.firebase.ui.auth.AuthMethodPickerLayout
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -21,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.mika.databinding.ActivityLoginBinding
 import java.util.*
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -110,17 +108,25 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
+        installSplashScreen()
         setContentView(binding.root)
 
         init()
-        val intent =(AuthUI
+        val customLayout = AuthMethodPickerLayout.Builder(com.mika.R.layout.auth_layout)
+            .setGoogleButtonId(com.mika.R.id.googleButton)
+            .setEmailButtonId(com.mika.R.id.signInButton) // ...
+//            .setTosAndPrivacyPolicyId(R.id.baz)
+            .build()
+        val intent = AuthUI
             .getInstance()
             .createSignInIntentBuilder()
+            .setAuthMethodPickerLayout(customLayout)
             .setAvailableProviders(providers)
-            .setLogo(R.drawable.mika)
+           // .setLogo(R.drawable.mika)
+
             .setIsSmartLockEnabled(true)
-            .setTheme(R.style.Theme_Mika_NoActionBar)
-            .build())
+            .setTheme(com.mika.R.style.Theme_Mika_NoActionBar)
+            .build()
 
         loginLauncher =  registerForActivityResult(FirebaseAuthUIActivityResultContract()){
             if (it != null) {

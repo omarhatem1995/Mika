@@ -61,5 +61,13 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.mika.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingsFragment_to_providerFragment"
+            app:destination="@id/providerFragment" />
+    </fragment>
 </navigation>

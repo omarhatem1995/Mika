@@ -9,20 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
-import com.mika.Constants.ADMIN_USER_TYPE
-import com.mika.Constants.CLIENT_USER_TYPE
-import com.mika.Constants.PROVIDER_USER_TYPE
+import com.mika.utils.Constants.ADMIN_USER_TYPE
+import com.mika.utils.Constants.CLIENT_USER_TYPE
+import com.mika.utils.Constants.PROVIDER_USER_TYPE
 import com.mika.databinding.FragmentFirstBinding
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import com.mika.R
 
 
 class FirstFragment : Fragment() {

@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -24,6 +25,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.mika.databinding.FragmentSecondBinding
+import com.mika.utils.changeLang
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.text.SimpleDateFormat
@@ -274,7 +276,6 @@ class SecondFragment : Fragment() {
 
         materialDatePicker.show(requireActivity().supportFragmentManager, "tag")
     }
-
     fun checkSelectedDay(date : String) : Boolean{
         return !(selectedDates2.contains(date))
     }

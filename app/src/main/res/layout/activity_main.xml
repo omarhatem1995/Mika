@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationDrawer"
@@ -16,12 +17,13 @@
         android:background="@color/mika_green"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/orange"
-        app:menu="@menu/navigation_menu" />
+        app:menu="@menu/navigation_menu"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"

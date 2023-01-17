@@ -32,7 +32,8 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding true
+        viewBinding = true
+
     }
     namespace 'com.mika'
 }
@@ -87,5 +88,7 @@ dependencies {
 
     // splash
     implementation("androidx.core:core-splashscreen:1.0.0")
+
+    implementation 'com.jakewharton:process-phoenix:2.1.2'
 
 }

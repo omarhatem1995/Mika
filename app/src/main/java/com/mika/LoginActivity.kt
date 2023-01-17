@@ -108,7 +108,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        installSplashScreen()
+       // installSplashScreen()
         setContentView(binding.root)
 
         init()
@@ -125,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
            // .setLogo(R.drawable.mika)
 
             .setIsSmartLockEnabled(true)
-            .setTheme(com.mika.R.style.Theme_Mika_NoActionBar)
+            .setTheme(com.mika.R.style.Theme_Mika)
             .build()
 
         loginLauncher =  registerForActivityResult(FirebaseAuthUIActivityResultContract()){

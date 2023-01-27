@@ -46,6 +46,7 @@ class AdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        firebaseDataBase = FirebaseDatabase.getInstance()
         binding.chooseDate.setOnClickListener {
             showDateRangePicker()
         }
@@ -56,16 +57,25 @@ class AdminFragment : Fragment() {
         val materialDatePicker = buildDatePicker()
         materialDatePicker.addOnPositiveButtonClickListener {
             val date = getSelectedDates(it)
-            val currentMonth = date?.split("-")?.get(0)
+            val currentMonth = date?.split("-")?.get(1)
 
             binding.selectedDate.text = date
+            Log.d("getDates", "$date")
             viewLifecycleOwner.lifecycleScope.launch {
                 firebaseDataBase?.reference?.child("Dates")?.valueEventFlow()?.collect {
+                    Log.d("getDates", "$it")
                     when (it) {
                         is Response.Success -> {
-                            if(it.data.value == currentMonth)
-                                arrayListOfDates.add(it.data.value.toString())
-                            Log.d("getDates" , "${arrayListOfDates.size}")
+                                it.data.children.forEach {
+                                    it.children.forEach {
+                                        Log.d("getDates", "${it.key == currentMonth} , $currentMonth")
+                                        if(it.key == currentMonth)
+                                            arrayListOfDates.add(it.value.toString())
+
+                                    }
+                                }
+//                            if(it.data.value == currentMonth)
+                            Log.d("getDates" , "${arrayListOfDates.size} ")
                         }
                             else -> {
 
